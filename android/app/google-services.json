@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868783385410",
+    "project_id": "sway-868c2",
+    "storage_bucket": "sway-868c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868783385410:android:12b82860a9bfccd200b6db",
+        "android_client_info": {
+          "package_name": "com.example.sway"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYDJotr-MY85HlBl5Cf_Gj8-urbR5emzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
