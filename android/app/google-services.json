@@ -12,7 +12,12 @@
           "package_name": "com.example.sway"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "868783385410-odp2v5eshpv99s6ls61is7t6o9572u9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAYDJotr-MY85HlBl5Cf_Gj8-urbR5emzk"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868783385410-odp2v5eshpv99s6ls61is7t6o9572u9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
