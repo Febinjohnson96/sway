@@ -26,3 +26,11 @@ final class CartDeleteItemEvent extends CartEvent {
   @override
   List<Object> get props => [productId];
 }
+
+final class OnTapPaymentEvent extends CartEvent {
+final String totalAmount;
+  const OnTapPaymentEvent({required this.totalAmount});
+
+  @override
+  List<Object> get props => [totalAmount];
+}

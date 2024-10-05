@@ -69,10 +69,12 @@ class CartScreen extends StatelessWidget {
                 SizedBox(
                   height: 12.h,
                 ),
-                AppButton(buttonTitle: "Checkout", callback: () {}),
+                AppButton(buttonTitle: "Checkout", callback: () {
+                  context.read<CartBloc>().add(OnTapPaymentEvent(totalAmount: state.totalPrice.toString()));
+                }),
               ] else if (state is CartError || state is CartEmpty) ...[
                 const Center(
-                  child: Text("Error loading products"),
+                  child: Text("Wow Such Empty"),
                 ),
               ] else ...[
                 const Center(

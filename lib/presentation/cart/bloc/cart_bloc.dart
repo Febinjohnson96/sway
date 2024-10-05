@@ -3,15 +3,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sway/domain/model/product/product_model.dart';
+import 'package:sway/managers/payment/payment.dart';
 import 'package:sway/util/app_logger.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  CartBloc() : super(CartInitial()) {
+  final PaymentManager paymentManager;
+  CartBloc({required this.paymentManager}) : super(CartInitial()) {
     on<CartInitialEvent>(_onCartInitialEvent);
     on<CartDeleteItemEvent>(_cartDeleteItem);
+    on<OnTapPaymentEvent>(_paymentEvent);
   }
 
   void _onCartInitialEvent(
@@ -63,5 +66,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       AppLogger.errorlog(e.toString());
       emit(CartError());
     }
+  }
+
+  void _paymentEvent(OnTapPaymentEvent event, Emitter<CartState> emit) async {
+    paymentManager.enablePayment(amount: event.totalAmount);
   }
 }
