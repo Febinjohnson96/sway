@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sway/config/app_colors.dart';
+import 'package:sway/config/app_typography.dart';
 import 'package:sway/gen/assets.gen.dart';
 
 class SwayNavbar extends StatefulWidget {
-  const SwayNavbar({super.key});
+  const SwayNavbar({super.key, this.onIconTapped});
+  final Function(int)? onIconTapped;
 
   @override
   State<SwayNavbar> createState() => _SwayNavbarState();
@@ -35,16 +37,14 @@ class _SwayNavbarState extends State<SwayNavbar> {
 
   void _onIconTapped(int index) {
     setState(() {
-      _currentIndex = index; // Update the current index
+      _currentIndex = index;
     });
-    // Handle navigation here, if necessary
-    // For example, you can use a navigation function to switch screens
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       width: double.infinity, // Use full width
       decoration: const BoxDecoration(
         color: AppColors.primary0,
@@ -57,7 +57,10 @@ class _SwayNavbarState extends State<SwayNavbar> {
         itemCount: navbarIcons.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () => _onIconTapped(index), // Handle icon tap
+            onTap: () {
+              _onIconTapped(index);
+              widget.onIconTapped?.call(index);
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -74,17 +77,17 @@ class _SwayNavbarState extends State<SwayNavbar> {
                 SizedBox(height: 4.h), // Space between icon and label
                 Text(
                   navbarLabels[index],
-                  style: TextStyle(
-                    color:
-                        Colors.grey, // Change text color based on active index
-                    fontSize: 12.sp,
+                  style: AppTypography.sWayMedium12.copyWith(
+                    color: _currentIndex == index
+                        ? AppColors.primary900
+                        : AppColors.primary400,
                   ),
                 ),
               ],
             ),
           );
         },
-        separatorBuilder: (context, index) => SizedBox(width: 45.w),
+        separatorBuilder: (context, index) => SizedBox(width: 42.w),
       ),
     );
   }
