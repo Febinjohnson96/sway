@@ -13,6 +13,9 @@ class $AssetsVectorGen {
   /// Directory path: assets/vector/common
   $AssetsVectorCommonGen get common => const $AssetsVectorCommonGen();
 
+  /// Directory path: assets/vector/detail
+  $AssetsVectorDetailGen get detail => const $AssetsVectorDetailGen();
+
   /// Directory path: assets/vector/home
   $AssetsVectorHomeGen get home => const $AssetsVectorHomeGen();
 
@@ -31,6 +34,16 @@ class $AssetsVectorCommonGen {
 
   /// List of all assets
   List<String> get values => [googleicon, logo];
+}
+
+class $AssetsVectorDetailGen {
+  const $AssetsVectorDetailGen();
+
+  /// File path: assets/vector/detail/bag_icon.svg
+  String get bagIcon => 'assets/vector/detail/bag_icon.svg';
+
+  /// List of all assets
+  List<String> get values => [bagIcon];
 }
 
 class $AssetsVectorHomeGen {
