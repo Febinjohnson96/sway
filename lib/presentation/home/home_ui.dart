@@ -1,4 +1,6 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sway/presentation/home/bloc/home_bloc.dart';
 import 'package:sway/presentation/home/ui/home_screen.dart';
 
 class HomeUi extends StatelessWidget {
@@ -6,6 +8,9 @@ class HomeUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return BlocProvider<HomeBloc>(
+      create: (context) => HomeBloc()..add(HomeInitialEvent()),
+      child: const HomeScreen(),
+    );
   }
 }
