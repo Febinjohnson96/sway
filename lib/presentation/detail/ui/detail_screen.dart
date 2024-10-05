@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sway/config/app_colors.dart';
 import 'package:sway/config/app_typography.dart';
 import 'package:sway/domain/model/product/product_model.dart';
 import 'package:sway/gen/assets.gen.dart';
+import 'package:sway/presentation/detail/bloc/detail_bloc.dart';
 import 'package:sway/presentation/widgets/app_icon_button.dart';
 import 'package:sway/presentation/widgets/sw_scaffold_with_padding.dart';
 import 'package:sway/presentation/widgets/sway_appbar.dart';
@@ -71,6 +73,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
                Expanded(flex: 2, child: AppIconButton(
+                callback: ()=> context.read<DetailBloc>().add(AddToCartEvent(product: product)),
                 assetName: Assets.vector.detail.bagIcon,
                 buttonTitle: 'Add to Cart',
               )),
