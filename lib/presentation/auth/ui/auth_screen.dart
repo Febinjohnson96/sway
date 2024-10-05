@@ -18,7 +18,7 @@ class AuthScreen extends StatelessWidget {
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if(state is AuthSuccess){
-            context.go(RouteName.home);
+            context.go(RouteName.mainView);
           }
         },
         child: Column(

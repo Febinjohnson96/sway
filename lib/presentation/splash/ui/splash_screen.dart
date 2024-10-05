@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
         child: BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state is AuthenticatedAccount) {
-          context.go(RouteName.home);
+          context.go(RouteName.mainView);
         }else if(state is UnAuthenticatedAccount){
           context.go(RouteName.auth);
         }
