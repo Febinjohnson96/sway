@@ -13,4 +13,9 @@ class Authentication {
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+  Future<User?> userAuthenticationStatus() async {
+    final user = FirebaseAuth.instance.currentUser;
+    return user;
+  }
 }

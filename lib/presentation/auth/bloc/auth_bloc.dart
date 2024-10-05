@@ -14,6 +14,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
   void _authLoginEvent(AuthLoginEvent event, Emitter<AuthState> emit) async {
     AppLogger.infolog("AuthLoginEvent");
-    authentication.googleSignin();
+    final userAuth = await authentication.googleSignin();
+
+    if (userAuth.user != null) {
+      emit(AuthSuccess());
+    }else{
+      emit(AuthError());
+    }
   }
 }
