@@ -17,7 +17,9 @@ class SplashScreen extends StatelessWidget {
     return SwScaffoldWithoutPadding(
         child: BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
-        if (state is SplashLoaded) {
+        if (state is AuthenticatedAccount) {
+          context.go(RouteName.home);
+        }else if(state is UnAuthenticatedAccount){
           context.go(RouteName.auth);
         }
       },
@@ -34,7 +36,7 @@ class SplashScreen extends StatelessWidget {
                 width: 400.w,
               ),
               Center(
-                child: SvgPicture.asset(Assets.vector.logo),
+                child: SvgPicture.asset(Assets.vector.common.logo),
               ),
             ],
           ),

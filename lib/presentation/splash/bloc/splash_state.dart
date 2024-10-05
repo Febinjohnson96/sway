@@ -17,3 +17,6 @@ final class SplashLoaded extends SplashState {
   @override
   List<Object> get props => [isLoaded];
 }
+
+final class AuthenticatedAccount extends SplashState {}
+final class UnAuthenticatedAccount extends SplashState {}

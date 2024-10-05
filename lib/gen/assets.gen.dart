@@ -10,14 +10,24 @@
 class $AssetsVectorGen {
   const $AssetsVectorGen();
 
-  /// File path: assets/vector/logo.svg
-  String get logo => 'assets/vector/logo.svg';
+  /// Directory path: assets/vector/common
+  $AssetsVectorCommonGen get common => const $AssetsVectorCommonGen();
 
   /// Directory path: assets/vector/splash
   $AssetsVectorSplashGen get splash => const $AssetsVectorSplashGen();
+}
+
+class $AssetsVectorCommonGen {
+  const $AssetsVectorCommonGen();
+
+  /// File path: assets/vector/common/googleicon.svg
+  String get googleicon => 'assets/vector/common/googleicon.svg';
+
+  /// File path: assets/vector/common/logo.svg
+  String get logo => 'assets/vector/common/logo.svg';
 
   /// List of all assets
-  List<String> get values => [logo];
+  List<String> get values => [googleicon, logo];
 }
 
 class $AssetsVectorSplashGen {

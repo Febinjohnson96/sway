@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sway/injector.dart';
 import 'package:sway/presentation/splash/bloc/splash_bloc.dart';
 import 'package:sway/presentation/splash/ui/splash_screen.dart';
 
@@ -9,7 +10,8 @@ class SplashUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SplashBloc>(
-      create: (context) => SplashBloc()..add(SplashInitialEvent()),
+      create: (context) =>
+          SplashBloc(authentication: injector())..add(SplashInitialEvent()),
       child: const SplashScreen(),
     );
   }
