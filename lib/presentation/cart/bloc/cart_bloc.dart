@@ -11,6 +11,7 @@ part 'cart_state.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartInitial()) {
     on<CartInitialEvent>(_onCartInitialEvent);
+    on<CartDeleteItemEvent>(_cartDeleteItem);
   }
 
   void _onCartInitialEvent(
@@ -25,17 +26,39 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(CartLoading());
       QuerySnapshot snapshot = await cartRef.get();
       List<ProductModel> products = snapshot.docs.map((doc) {
-        return ProductModel.fromJson(doc.data() as Map<String, dynamic>);
+        return ProductModel(
+          id: doc.id,
+          name: doc['name'],
+          image: doc['image'],
+          price: doc['price'],
+        );
       }).toList();
       if (products.isNotEmpty) {
+        AppLogger.infolog(products[0].id.toString());
         var total = 0;
         for (var product in products) {
           total += int.parse(product.price.toString());
         }
-        emit(CartLoaded(products: products,totalPrice: total));
+        emit(CartLoaded(products: products, totalPrice: total));
       } else {
         emit(CartEmpty());
       }
+    } catch (e) {
+      AppLogger.errorlog(e.toString());
+      emit(CartError());
+    }
+  }
+
+  void _cartDeleteItem(
+      CartDeleteItemEvent event, Emitter<CartState> emit) async {
+    String userId = FirebaseAuth.instance.currentUser!.uid;
+    CollectionReference reference = FirebaseFirestore.instance
+        .collection('cart')
+        .doc(userId)
+        .collection('items');
+    try {
+      await reference.doc(event.productId).delete();
+      add(CartInitialEvent());
     } catch (e) {
       AppLogger.errorlog(e.toString());
       emit(CartError());

@@ -17,3 +17,12 @@ final class CartAddEvent extends CartEvent {
   @override
   List<Object> get props => [product];
 }
+
+final class CartDeleteItemEvent extends CartEvent {
+  final String productId;
+
+  const CartDeleteItemEvent({required this.productId});
+
+  @override
+  List<Object> get props => [productId];
+}

@@ -10,6 +10,9 @@
 class $AssetsVectorGen {
   const $AssetsVectorGen();
 
+  /// Directory path: assets/vector/cart
+  $AssetsVectorCartGen get cart => const $AssetsVectorCartGen();
+
   /// Directory path: assets/vector/common
   $AssetsVectorCommonGen get common => const $AssetsVectorCommonGen();
 
@@ -21,6 +24,16 @@ class $AssetsVectorGen {
 
   /// Directory path: assets/vector/splash
   $AssetsVectorSplashGen get splash => const $AssetsVectorSplashGen();
+}
+
+class $AssetsVectorCartGen {
+  const $AssetsVectorCartGen();
+
+  /// File path: assets/vector/cart/delete_icon.svg
+  String get deleteIcon => 'assets/vector/cart/delete_icon.svg';
+
+  /// List of all assets
+  List<String> get values => [deleteIcon];
 }
 
 class $AssetsVectorCommonGen {
