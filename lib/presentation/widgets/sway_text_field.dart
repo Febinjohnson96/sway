@@ -9,14 +9,16 @@ class SwayTextField extends StatelessWidget {
   const SwayTextField({
     super.key,
     required this.searchController,
-    required this.hintText,
+    required this.hintText, this.onChanged,
   });
   final TextEditingController searchController;
   final String hintText;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) => onChanged?.call(value),
       controller: searchController,
       onTapOutside: (event) =>
           WidgetsBinding.instance.focusManager.primaryFocus?.unfocus(),

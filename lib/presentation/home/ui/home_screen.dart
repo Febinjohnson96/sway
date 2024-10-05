@@ -40,6 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 12.h,
           ),
           SwayTextField(
+            onChanged: (value) {
+              context.read<HomeBloc>().add(SearchEvent(query: value));
+            },
             searchController: _searchController,
             hintText: "Search for clothes",
           ),

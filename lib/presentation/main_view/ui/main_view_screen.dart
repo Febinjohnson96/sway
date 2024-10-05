@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sway/presentation/cart/cart_ui.dart';
 import 'package:sway/presentation/home/home_ui.dart';
 import 'package:sway/presentation/widgets/sw_scaffold_without_padding.dart';
 import 'package:sway/presentation/widgets/sway_navbar.dart';
@@ -17,9 +18,8 @@ class _MainViewScreenState extends State<MainViewScreen> {
   final List<Widget> _views = const [
     HomeUi(),
     Text("Home View"),
-    Text("Profile View"),
-    Text("Help View"),
-    Text("Logout View"),
+    CartUi(),
+    Text("Account"),
   ];
   @override
   Widget build(BuildContext context) {
