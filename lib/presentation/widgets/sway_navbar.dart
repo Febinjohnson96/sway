@@ -20,7 +20,6 @@ class _SwayNavbarState extends State<SwayNavbar> {
   // List of navbar icons
   final List<String> navbarIcons = [
     Assets.vector.home.homeIcon,
-    Assets.vector.home.searchIcon,
     Assets.vector.home.heartIcon,
     Assets.vector.home.cartIcon,
     Assets.vector.home.userIcon
@@ -29,7 +28,6 @@ class _SwayNavbarState extends State<SwayNavbar> {
   // List of corresponding labels for accessibility
   final List<String> navbarLabels = [
     'Home',
-    'Search',
     'Favorites',
     'Cart',
     'Account',
@@ -44,7 +42,7 @@ class _SwayNavbarState extends State<SwayNavbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       width: double.infinity, // Use full width
       decoration: const BoxDecoration(
         color: AppColors.primary0,
@@ -88,7 +86,7 @@ class _SwayNavbarState extends State<SwayNavbar> {
             ),
           );
         },
-        separatorBuilder: (context, index) => SizedBox(width: 42.w),
+        separatorBuilder: (context, index) => SizedBox(width: 65.w),
       ),
     );
   }

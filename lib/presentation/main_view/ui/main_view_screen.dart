@@ -18,7 +18,6 @@ class _MainViewScreenState extends State<MainViewScreen> {
     HomeUi(),
     Text("Home View"),
     Text("Profile View"),
-    Text("Settings View"),
     Text("Help View"),
     Text("Logout View"),
   ];

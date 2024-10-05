@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sway/config/app_typography.dart';
+import 'package:sway/config/route_name.dart';
 import 'package:sway/gen/assets.gen.dart';
 import 'package:sway/presentation/home/widget/product_card.dart';
 import 'package:sway/presentation/widgets/sw_scaffold_with_padding.dart';
@@ -61,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             childAspectRatio: 0.75),
                     itemBuilder: (context, index) => ProductCard(
                       product: state.products[index],
+                      callback: () => context.push(RouteName.detailView,extra: state.products[index]),
                     ),
                     itemCount: state.products.length,
                   ),
