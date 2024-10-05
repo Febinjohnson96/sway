@@ -36,6 +36,9 @@ class $AssetsVectorCommonGen {
 class $AssetsVectorHomeGen {
   const $AssetsVectorHomeGen();
 
+  /// File path: assets/vector/home/bell_icon.svg
+  String get bellIcon => 'assets/vector/home/bell_icon.svg';
+
   /// File path: assets/vector/home/cart_icon.svg
   String get cartIcon => 'assets/vector/home/cart_icon.svg';
 
@@ -53,7 +56,7 @@ class $AssetsVectorHomeGen {
 
   /// List of all assets
   List<String> get values =>
-      [cartIcon, heartIcon, homeIcon, searchIcon, userIcon];
+      [bellIcon, cartIcon, heartIcon, homeIcon, searchIcon, userIcon];
 }
 
 class $AssetsVectorSplashGen {

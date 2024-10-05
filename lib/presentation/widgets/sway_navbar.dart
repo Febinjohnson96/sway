@@ -53,6 +53,7 @@ class _SwayNavbarState extends State<SwayNavbar> {
       ),
       height: 86.h,
       child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: navbarIcons.length,
         itemBuilder: (context, index) {
