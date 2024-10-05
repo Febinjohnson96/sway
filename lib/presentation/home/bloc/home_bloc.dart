@@ -10,6 +10,7 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<HomeInitialEvent>(_onHomeInitialEvent);
+    on<SearchEvent>(_onSearchEvent);
   }
   void _onHomeInitialEvent(
       HomeInitialEvent event, Emitter<HomeState> emit) async {
@@ -30,5 +31,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       AppLogger.errorlog(e.toString());
       emit(HomeError());
     }
+  }
+
+  void _onSearchEvent(SearchEvent event, Emitter<HomeState> emit) async {
+      if (state is HomeLoaded) {
+        final currentState = state as HomeLoaded;
+        if (event.query.isNotEmpty) {
+          final filteredProducts = currentState.products.where((product) {
+            final nameLower = product.name?.toLowerCase() ?? '';
+            final priceLower = product.price?.toLowerCase() ?? '';
+            final discountLower = product.discount?.toLowerCase() ?? '';
+            final searchLower = event.query.toLowerCase();
+
+            return nameLower.contains(searchLower) ||
+                priceLower.contains(searchLower) ||
+                discountLower.contains(searchLower);
+          }).toList();
+          emit(HomeLoaded(products: filteredProducts));
+        }else{
+          emit(HomeLoaded(products: currentState.products));
+        }
+      }
   }
 }
