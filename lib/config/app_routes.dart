@@ -4,6 +4,7 @@ import 'package:sway/domain/model/product/product_model.dart';
 import 'package:sway/presentation/auth/auth_ui.dart';
 import 'package:sway/presentation/detail/detail_ui.dart';
 import 'package:sway/presentation/main_view/main_view_ui.dart';
+import 'package:sway/presentation/order/order_ui.dart';
 import 'package:sway/presentation/splash/splash_ui.dart';
 
 class AppRoutes {
@@ -28,5 +29,9 @@ class AppRoutes {
           final product = state.extra as ProductModel;
           return DetailUi(product: product);
         }),
+    GoRoute(
+      path: RouteName.myOrders,
+      builder: (context, state) => const OrderUi(),
+    ),
   ]);
 }

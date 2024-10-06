@@ -23,3 +23,7 @@ final class CartLoaded extends CartState {
 final class CartEmpty extends CartState {}
 
 final class CartError extends CartState {}
+
+final class OrderSuccessState extends CartState {}
+
+final class OrderFaliure extends CartState {} 
