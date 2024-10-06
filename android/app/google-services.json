@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "868783385410",
+    "project_id": "sway-868c2",
+    "storage_bucket": "sway-868c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868783385410:android:12b82860a9bfccd200b6db",
+        "android_client_info": {
+          "package_name": "com.example.sway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868783385410-226pgn7e6qln2t1vajif69spn0gdg0k4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sway",
+            "certificate_hash": "98d04f24f40ff2eb845ccc7574a5f14cf9ac3852"
+          }
+        },
+        {
+          "client_id": "868783385410-odp2v5eshpv99s6ls61is7t6o9572u9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYDJotr-MY85HlBl5Cf_Gj8-urbR5emzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868783385410-odp2v5eshpv99s6ls61is7t6o9572u9j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "868783385410-j8tvhpp70qjf0rk29m667ouvptb473p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sway"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
