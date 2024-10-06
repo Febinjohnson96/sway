@@ -1,7 +1,7 @@
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentManager {
-  Razorpay _razorpay = Razorpay();
+ final Razorpay _razorpay = Razorpay();
 
   void enablePayment({required String amount}) {
     var options = {

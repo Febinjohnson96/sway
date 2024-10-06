@@ -19,7 +19,7 @@ class AccountButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: ()=> onTap?.call(),
       child: SizedBox(
         height: 80.h,
         child: Row(

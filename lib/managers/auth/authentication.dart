@@ -18,4 +18,10 @@ class Authentication {
     final user = FirebaseAuth.instance.currentUser;
     return user;
   }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    await GoogleSignIn().signOut();
+  }
+
 }
