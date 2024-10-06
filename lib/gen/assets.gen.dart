@@ -10,6 +10,9 @@
 class $AssetsVectorGen {
   const $AssetsVectorGen();
 
+  /// Directory path: assets/vector/account
+  $AssetsVectorAccountGen get account => const $AssetsVectorAccountGen();
+
   /// Directory path: assets/vector/cart
   $AssetsVectorCartGen get cart => const $AssetsVectorCartGen();
 
@@ -24,6 +27,19 @@ class $AssetsVectorGen {
 
   /// Directory path: assets/vector/splash
   $AssetsVectorSplashGen get splash => const $AssetsVectorSplashGen();
+}
+
+class $AssetsVectorAccountGen {
+  const $AssetsVectorAccountGen();
+
+  /// File path: assets/vector/account/logout_icon.svg
+  String get logoutIcon => 'assets/vector/account/logout_icon.svg';
+
+  /// File path: assets/vector/account/order_box_icon.svg
+  String get orderBoxIcon => 'assets/vector/account/order_box_icon.svg';
+
+  /// List of all assets
+  List<String> get values => [logoutIcon, orderBoxIcon];
 }
 
 class $AssetsVectorCartGen {
