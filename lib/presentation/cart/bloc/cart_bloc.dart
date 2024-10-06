@@ -70,5 +70,30 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   void _paymentEvent(OnTapPaymentEvent event, Emitter<CartState> emit) async {
     paymentManager.enablePayment(amount: event.totalAmount);
+    String userId = FirebaseAuth.instance.currentUser!.uid;
+    CollectionReference orderRef = FirebaseFirestore.instance
+        .collection('order')
+        .doc(userId)
+        .collection('items');
+    CollectionReference cartRef = FirebaseFirestore.instance
+        .collection('cart')
+        .doc(userId)
+        .collection('items');
+
+    try {
+      QuerySnapshot cartSnapshot = await cartRef.get();
+
+      for (QueryDocumentSnapshot doc in cartSnapshot.docs) {
+        await orderRef.add(
+            doc.data() as Map<String, dynamic>); // Cast to Map<String, dynamic>
+
+        await doc.reference.delete();
+      }
+      emit(OrderSuccessState());
+      add(CartInitialEvent());
+    } catch (e) {
+      AppLogger.errorlog(e.toString());
+      emit(OrderFaliure());
+    }
   }
 }

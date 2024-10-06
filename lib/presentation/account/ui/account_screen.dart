@@ -23,6 +23,7 @@ class AccountScreen extends StatelessWidget {
         child: Column(
           children: [
             AccountButton(
+              onTap: () => context.push(RouteName.myOrders),
               title: "My Orders",
               color: AppColors.primary900,
               img: Assets.vector.account.orderBoxIcon,
